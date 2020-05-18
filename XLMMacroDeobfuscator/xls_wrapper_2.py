@@ -149,6 +149,10 @@ class XLSWrapper2(ExcelWrapper):
                 # elif info_type_id == 23:
                 #     data = font.struck_out
                 #
+
+                elif info_type_id == 24:
+                    data = font.colour_index - 7
+
                 # elif info_type_id == 25:
                 #     data = font.outline
                 #
@@ -171,6 +175,9 @@ class XLSWrapper2(ExcelWrapper):
                 #     # Bottom Color index
                 #     data = fmt.border.bottom_colour_index
 
+                elif info_type_id == 38:
+                    data = fmt.background.pattern_colour_index - 7
+
                 elif info_type_id == 50:
                     data = fmt.alignment.vert_align + 1
 
@@ -183,7 +190,7 @@ class XLSWrapper2(ExcelWrapper):
             if row in sheet.rowinfo_map:
                 not_exist = False
                 data = sheet.rowinfo_map[row].height
-                data = math.ceil(Cell.convert_twip_to_point(data))
+                data = round(Cell.convert_twip_to_point(data))
 
         return data, not_exist, not_implemented
 
@@ -211,4 +218,3 @@ if __name__ == '__main__':
         for formula_loc, info in macrosheets[macrosheet_name].cells.items():
             if info.formula is None:
                 print('{}\t{}\t{}'.format(formula_loc, info.formula, info.value))
-

@@ -110,7 +110,7 @@ class XLSWrapper(ExcelWrapper):
 
         for cell in cells:
             macrosheet.add_cell(cells[cell])
-            
+
     def get_macrosheets(self):
         if self._macrosheets is None:
             self._macrosheets = {}
