@@ -190,7 +190,8 @@ class XLSWrapper2(ExcelWrapper):
             if row in sheet.rowinfo_map:
                 not_exist = False
                 data = sheet.rowinfo_map[row].height
-                data = round(Cell.convert_twip_to_point(data))
+                data = Cell.convert_twip_to_point(data)
+                data = round(float(data)*4)/4
 
         return data, not_exist, not_implemented
 

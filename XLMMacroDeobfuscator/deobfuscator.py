@@ -1,7 +1,6 @@
 import argparse
 import os
 import sys
-
 from lark import Lark
 from lark.exceptions import ParseError
 from lark.lexer import Token
@@ -24,6 +23,7 @@ import os
 import operator
 import copy
 from distutils.util import strtobool
+
 
 class EvalStatus(Enum):
     FullEvaluation = 1
